@@ -11,7 +11,7 @@ def copysol(link, quest):
     tag = soup.ol
     filename = quest + ".txt"
     f = open(filename, 'a')
-    f.write('......CRAWLED......'+'\n')
+    f.write('\n')
     for item in tag.findAll('li'):
         f.write(item.text)
         f.write('\n')
@@ -32,8 +32,11 @@ def ext_solution(link, quest):
 
 
 def crawler(username):
-    os.mkdir(username)
-    os.chdir(username)
+    try:
+        os.mkdir(username)
+        os.chdir(username)
+    except(Exception):
+        os.chdir(username)
     url="https://www.codechef.com/users/"+username
     source_code = requests.get(url)
     plain_text = source_code.text
