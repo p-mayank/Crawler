@@ -1,1 +1,3 @@
 Implementation of BeautifulSoup in Python3 to crawl user submitted solutions from CodeChef.
+
+Make sure you have bs4 installed and compiling on Python3.
