@@ -12,9 +12,13 @@ def copysol(link, quest):
     filename = quest + ".txt"
     f = open(filename, 'a')
     f.write('\n')
-    for item in tag.findAll('li'):
-        f.write(item.text)
-        f.write('\n')
+    if(tag!='None'):
+        for item in tag.findAll('li'):
+            f.write(item.text)
+            f.write('\n')
+    else:
+        f.write("Issue with the submission: Skipping!")
+        print("Issue with the submission: Skipping!")
     f.close()
 
 
