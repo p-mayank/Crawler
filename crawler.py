@@ -6,22 +6,18 @@ from urllib.request import Request, urlopen
 def copysol(link, quest):
     print("copysol: "+quest)
     try:
-        source_code = Request(link, headers={'User-Agent': 'Mozilla/5.0'})
-        text = urlopen(source_code).read()
+    	source_code = Request(link, headers={'User-Agent': 'Mozilla/5.0'})
+    	text = urlopen(source_code).read()
     except:
-        print("505Error! Trying Again!")
-        copysol(link, quest)
+    	print("505Error! Trying Again!")
+    	copysol(link, quest)
 
     soup = BeautifulSoup(text, 'html.parser')
     tag = soup.ol
     filename = quest + ".txt"
     f = open(filename, 'a')
     f.write('\n')
-<<<<<<< HEAD
     if(tag!=None):
-=======
-    if(tag!='None'):
->>>>>>> 17335916bc72a518548433d079e74da649584c76
         for item in tag.findAll('li'):
             f.write(item.text)
             f.write('\n')
@@ -34,10 +30,10 @@ def copysol(link, quest):
 def ext_solution(link, quest):
     url=link
     try:
-        source_code = requests.get(url)
+    	source_code = requests.get(url)
     except:
-        print("505Error! Trying Again!")
-        ext_solution(link, quest)
+    	print("505Error! Trying Again!")
+    	ext_solution(link, quest)
     text = source_code.text
     soup = BeautifulSoup(text, 'html.parser')
     for link in soup.findAll('a', {'class':None}):
